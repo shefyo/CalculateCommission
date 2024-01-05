@@ -6,7 +6,7 @@ fun main() {
 fun calculateCommission(cardType: String = "VK Pay", previousTransfers: Int = 0, transferAmount: Int): Int {
     return when (cardType) {
         "Mastercard", "Maestro" -> {
-            if (previousTransfers > 75000) {
+            if (previousTransfers + transferAmount > 75000) {
                 (transferAmount - 20 - (0.6 * transferAmount) / 100).toInt()
             } else {
                 0
